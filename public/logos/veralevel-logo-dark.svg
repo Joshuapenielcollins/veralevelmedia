@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 140" width="620" height="140">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@800&amp;family=JetBrains+Mono:wght@500&amp;display=swap');
+      .wm { font-family:'Schibsted Grotesk',Arial,sans-serif; font-weight:800; font-size:64px; letter-spacing:-2.5px; }
+      .tag { font-family:'JetBrains Mono',monospace; font-weight:500; font-size:15px; letter-spacing:9px; }
+    </style>
+  </defs>
+
+  <!-- step-up mark -->
+  <g transform="translate(18,22)" fill="none" stroke="#f5a623" stroke-width="12" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M8 88 H34 V62 H60 V36 H86 V16"/>
+    <path d="M72 27 L86 12 L100 27"/>
+  </g>
+
+  <!-- wordmark -->
+  <text class="wm" x="150" y="78">
+    <tspan fill="#f6f1e7">Vera</tspan><tspan fill="#f5a623">Level</tspan>
+  </text>
+  <text class="tag" x="153" y="112" fill="#8a8375">MEDIA</text>
+</svg>

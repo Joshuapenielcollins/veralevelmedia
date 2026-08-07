@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240">
+  <!-- badge -->
+  <rect x="0" y="0" width="240" height="240" rx="56" fill="#0b0a08"/>
+  <rect x="1.5" y="1.5" width="237" height="237" rx="54.5" fill="none" stroke="#f5a623" stroke-opacity="0.28" stroke-width="3"/>
+
+  <!-- step-up mark -->
+  <g transform="translate(58,56)" fill="none" stroke="#f5a623" stroke-width="15" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M8 118 H42 V84 H76 V50 H110 V24"/>
+    <path d="M92 38 L110 18 L128 38"/>
+  </g>
+</svg>
