@@ -268,7 +268,7 @@ const faqs = [
     a: "Authority positioning begins with your first published videos. Most of our clients see qualified leads entering their booking pipeline within 30 to 45 days as content distribution compounds across platforms.",
   },
   {
-    q: "What makes VeraLevel Media different from typical video production agencies?",
+    q: "What makes Unmute Media different from typical video production agencies?",
     a: "Traditional agencies hand you edited video files and wish you good luck. We build the full revenue funnel: content strategy, viral filming, automated DM capture, CRM integration, and booked sales meetings.",
   },
   {
@@ -309,7 +309,7 @@ const FlowTimeline = () => {
         return (
           <div key={s.t}>
             {s.phase && (
-              <div className="phase-row" style={{ color: active ? "#f5a623" : "#57534e" }}>
+              <div className="phase-row" style={{ color: active ? "var(--accent)" : "var(--ink-muted)" }}>
                 Phase {s.phase} · {phaseNames[s.phase]}
                 <span className="phase-line" />
               </div>
@@ -321,13 +321,13 @@ const FlowTimeline = () => {
               <div
                 className="step-body"
                 style={{
-                  opacity: active ? 1 : 0.3,
+                  opacity: active ? 1 : 0.4,
                   transform: active ? "translateX(0)" : "translateX(14px)",
                 }}
               >
                 <div className="step-head">
                   <span className="mono step-num">{String(i + 1).padStart(2, "0")}</span>
-                  <h4 style={{ color: active ? "#f8f5ee" : "#a8a29e" }}>{s.t}</h4>
+                  <h4 style={{ color: active ? "var(--ink)" : "var(--ink-muted)" }}>{s.t}</h4>
                 </div>
                 <p>{s.d}</p>
               </div>
@@ -388,8 +388,8 @@ const Cursor = () => {
       ring.style.transform = `translate(${rx}px, ${ry}px) translate(-50%, -50%) scale(${
         hovering ? 1.8 : 1
       })`;
-      ring.style.borderColor = hovering ? "rgba(245,166,35,.85)" : "rgba(245,166,35,.35)";
-      ring.style.background = hovering ? "rgba(245,166,35,.07)" : "transparent";
+      ring.style.borderColor = hovering ? "rgba(239,51,52,.85)" : "rgba(239,51,52,.35)";
+      ring.style.background = hovering ? "rgba(239,51,52,.07)" : "transparent";
       raf = requestAnimationFrame(loop);
     };
     window.addEventListener("mousemove", move, { passive: true });
@@ -411,7 +411,7 @@ const Cursor = () => {
 };
 
 /* ================= MAIN APP ================= */
-export default function VeraLevelLanding() {
+export default function UnmuteLanding() {
   const [scrolled, setScrolled] = useState(false);
   const [activeTab, setActiveTab] = useState("all");
   const [openFaq, setOpenFaq] = useState(0);
@@ -426,40 +426,47 @@ export default function VeraLevelLanding() {
     activeTab === "all" ? nicheGroups : nicheGroups.filter((g) => g.id === activeTab);
 
   return (
-    <div className="vl-root">
+    <div className="um-root">
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,400..800;1,400..800&family=Instrument+Serif:ital@0;1&family=JetBrains Mono:ital,wght@0,400..700;1,400..700&display=swap');
 
         :root {
-          --bg: #090807;
-          --bg2: #0e0c0a;
-          --cream: #f8f5ee;
-          --dim: #a69f92;
-          --dim2: #6b6458;
-          --amber: #f5a623;
-          --amber-light: #ffba42;
-          --amber-soft: rgba(245,166,35,.08);
-          --amber-glow: rgba(245,166,35,.22);
-          --line: rgba(255,255,255,.07);
-          --line-dash: rgba(255,255,255,.09);
+          --bg: #FFFFFF;
+          --bg-warm: #F2F0EA;
+          --bg-card: #FFFFFF;
+          --bg-dark: #211B16;
+          --bg-dark-card: #2A231E;
+          --ink: #211B16;
+          --ink-muted: #8A8378;
+          --ink-light: #575047;
+          --accent: #EF3334;
+          --accent-hover: #D92B2C;
+          --accent-soft: rgba(239, 51, 52, 0.08);
+          --accent-glow: rgba(239, 51, 52, 0.22);
+          --green: #147A5C;
+          --green-soft: rgba(20, 122, 92, 0.1);
+          --line: rgba(33, 27, 22, 0.1);
+          --line-dash: rgba(33, 27, 22, 0.12);
+          --line-dark: rgba(255, 255, 255, 0.12);
           --ease-framer: cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         * { margin:0; padding:0; box-sizing:border-box; }
         html { scroll-behavior:smooth; }
 
-        .vl-root {
-          min-height:100vh; background:var(--bg); color:var(--cream);
+        .um-root {
+          min-height:100vh; background:var(--bg); color:var(--ink);
           font-family:'Schibsted Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
           -webkit-font-smoothing:antialiased; overflow-x:hidden; position:relative;
         }
 
-        ::selection { background:var(--amber); color:#090807; }
+        ::selection { background:var(--accent); color:#FFFFFF; }
 
         /* Font System */
         .serif { font-family:'Instrument Serif', serif; font-style:italic; font-weight:400; letter-spacing:0; }
         .mono { font-family:'JetBrains Mono', monospace; }
-        .amber { color:var(--amber); }
+        .accent { color:var(--accent); }
+        .amber { color:var(--accent); }
         .wrap { max-width:1200px; margin:0 auto; padding:0 24px; }
 
         /* Nav Menu Bar Specific Font - Plus Jakarta Sans */
@@ -469,13 +476,13 @@ export default function VeraLevelLanding() {
 
         /* Scroll Progress Bar */
         .scroll-progress-bar { position:fixed; top:0; left:0; right:0; height:3px; z-index:1000; pointer-events:none; }
-        .scroll-progress-fill { height:100%; background:linear-gradient(90deg, #f5a623, #ff6b00, #ffba42); box-shadow:0 0 10px rgba(245,166,35,0.8); transition:width 0.1s linear; }
+        .scroll-progress-fill { height:100%; background:linear-gradient(90deg, #EF3334, #D92B2C); box-shadow:0 0 10px rgba(239,51,52,0.6); transition:width 0.1s linear; }
 
-        /* Human styling touches */
+        /* Styling touches */
         .hl-under { position:relative; display:inline-block; }
         .hl-under::after {
           content:""; position:absolute; left:-4%; right:-4%; bottom:6%; height:18%;
-          background:var(--amber-glow); border-radius:6px;
+          background:var(--accent-glow); border-radius:6px;
           transform:skew(-14deg) rotate(-1.2deg); z-index:-1;
         }
         .tilt-l { transform:rotate(-0.8deg); }
@@ -483,8 +490,8 @@ export default function VeraLevelLanding() {
 
         /* Custom Cursor */
         .cursor-dot, .cursor-ring { position:fixed; top:0; left:0; pointer-events:none; z-index:9999; border-radius:50%; }
-        .cursor-dot { width:7px; height:7px; background:var(--amber); }
-        .cursor-ring { width:38px; height:38px; border:1.5px solid rgba(245,166,35,.45); transition:border-color .3s, background .3s; }
+        .cursor-dot { width:7px; height:7px; background:var(--accent); }
+        .cursor-ring { width:38px; height:38px; border:1.5px solid rgba(239,51,52,.45); transition:border-color .3s, background .3s; }
         @media (pointer:fine) {
           body.has-cursor, body.has-cursor a, body.has-cursor button { cursor:none; }
         }
@@ -497,15 +504,15 @@ export default function VeraLevelLanding() {
         .bg-grid {
           position:fixed; inset:0; z-index:0; pointer-events:none;
           background-image:
-            linear-gradient(rgba(248,245,238,.02) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(248,245,238,.02) 1px, transparent 1px);
+            linear-gradient(rgba(33,27,22,.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(33,27,22,.03) 1px, transparent 1px);
           background-size:84px 84px;
           -webkit-mask-image:radial-gradient(ellipse 85% 60% at 50% 0%, #000 20%, transparent 100%);
           mask-image:radial-gradient(ellipse 85% 60% at 50% 0%, #000 20%, transparent 100%);
         }
         .bg-glow-orb {
           position:fixed; top:-180px; left:30%; width:640px; height:640px; border-radius:50%;
-          background:radial-gradient(circle, rgba(245,166,35,.1) 0%, transparent 70%);
+          background:radial-gradient(circle, rgba(239,51,52,.07) 0%, transparent 70%);
           filter:blur(140px); z-index:0; pointer-events:none;
           animation:orbFloat 20s ease-in-out infinite alternate;
         }
@@ -514,17 +521,17 @@ export default function VeraLevelLanding() {
         /* Card Spotlight Component */
         .spotlight-card {
           position:relative; border-radius:24px; border:1px solid var(--line);
-          background:var(--bg2); overflow:hidden;
+          background: #FFFFFF; overflow:hidden;
           transition:transform 0.45s var(--ease-framer), border-color 0.45s var(--ease-framer), box-shadow 0.45s var(--ease-framer);
         }
         .spotlight-card:hover {
-          border-color:rgba(245,166,35,0.4);
+          border-color:rgba(239,51,52,0.4);
           transform:translateY(-5px) scale(1.008);
-          box-shadow:0 20px 50px rgba(0,0,0,0.45);
+          box-shadow:0 20px 40px rgba(33,27,22,0.08);
         }
         .spotlight-glow {
           position:absolute; inset:0; pointer-events:none; opacity:0;
-          background:radial-gradient(500px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(245,166,35,0.13), transparent 40%);
+          background:radial-gradient(500px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(239,51,52,0.1), transparent 40%);
           transition:opacity 0.4s var(--ease-framer); z-index:1;
         }
         .spotlight-card:hover .spotlight-glow { opacity:1; }
@@ -540,38 +547,38 @@ export default function VeraLevelLanding() {
           width:calc(100% - 48px); max-width:980px; margin:0 auto;
           display:flex; align-items:center; justify-content:space-between;
           padding:10px 14px 10px 22px; border-radius:999px;
-          background:rgba(14,12,10,0.72);
+          background:rgba(255,255,255,0.85);
           backdrop-filter:blur(24px); -webkit-backdrop-filter:blur(24px);
-          border:1px solid rgba(255,255,255,0.12);
-          box-shadow:0 16px 40px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.12);
+          border:1px solid rgba(33,27,22,0.1);
+          box-shadow:0 12px 32px rgba(33,27,22,0.08), inset 0 1px 0 rgba(255,255,255,0.8);
           transition:all 0.4s var(--ease-framer);
         }
         .nav.scrolled .nav-in {
-          background:rgba(9,8,7,0.92);
-          border-color:rgba(245,166,35,0.35);
-          box-shadow:0 20px 50px rgba(0,0,0,0.65), inset 0 1px 0 rgba(245,166,35,0.2);
+          background:rgba(255,255,255,0.95);
+          border-color:rgba(239,51,52,0.3);
+          box-shadow:0 16px 40px rgba(33,27,22,0.14), inset 0 1px 0 rgba(239,51,52,0.2);
         }
-        .logo { font-size:21px; font-weight:800; letter-spacing:-.02em; color:var(--cream); text-decoration:none; display:flex; align-items:center; gap:6px; font-family:'Schibsted Grotesk', sans-serif !important; }
-        .logo b { color:var(--amber); font-weight:800; }
+        .logo { font-size:21px; font-weight:800; letter-spacing:-.02em; color:var(--ink); text-decoration:none; display:flex; align-items:center; gap:6px; font-family:'Schibsted Grotesk', sans-serif !important; }
+        .logo b { color:var(--accent); font-weight:800; }
         .nav-links { display:flex; gap:32px; }
-        .nav-links a { position:relative; color:var(--dim); text-decoration:none; font-size:14px; font-weight:600; transition:color .3s; }
+        .nav-links a { position:relative; color:var(--ink-muted); text-decoration:none; font-size:14px; font-weight:600; transition:color .3s; }
         .nav-links a::after {
           content:""; position:absolute; left:0; bottom:-6px; width:100%; height:1.5px;
-          background:var(--amber); transform:scaleX(0); transform-origin:right;
+          background:var(--accent); transform:scaleX(0); transform-origin:right;
           transition:transform .35s var(--ease-framer);
         }
-        .nav-links a:hover { color:var(--cream); }
+        .nav-links a:hover { color:var(--ink); }
         .nav-links a:hover::after { transform:scaleX(1); transform-origin:left; }
         @media(max-width:860px){ .nav-links{ display:none; } }
 
         /* Buttons */
         .btn {
           display:inline-flex; align-items:center; justify-content:center; gap:10px; cursor:pointer; border:none;
-          background:linear-gradient(135deg, #f5a623 0%, #e09315 100%); color:#0e0c0a;
+          background:var(--accent); color:#FFFFFF;
           font-weight:700; font-size:14.5px; letter-spacing:-.01em;
           padding:12px 24px; border-radius:999px; text-decoration:none;
-          box-shadow:0 6px 20px rgba(245,166,35,0.2);
-          transition:transform .35s var(--ease-framer), box-shadow .35s var(--ease-framer);
+          box-shadow:0 6px 20px rgba(239,51,52,0.25);
+          transition:transform .35s var(--ease-framer), box-shadow .35s var(--ease-framer), background .3s;
           position:relative; overflow:hidden;
         }
         .btn::after {
@@ -581,38 +588,39 @@ export default function VeraLevelLanding() {
         }
         .btn:hover::after { transform:translateX(100%); }
         .btn:hover {
+          background:var(--accent-hover);
           transform:translateY(-2px);
-          box-shadow:0 14px 36px rgba(245,166,35,.35);
+          box-shadow:0 14px 36px rgba(239,51,52,.38);
         }
         .btn svg { transition:transform .3s var(--ease-framer); }
         .btn:hover svg { transform:translateX(4px); }
         .btn.lg { font-size:16px; padding:16px 36px; }
         .btn.xl { font-size:18px; padding:19px 42px; }
-        .btn.ghost { background:transparent; color:var(--cream); border:1px solid rgba(255,255,255,.14); box-shadow:none; }
-        .btn.ghost:hover { border-color:rgba(245,166,35,.6); color:var(--amber); background:rgba(245,166,35,.06); box-shadow:none; }
+        .btn.ghost { background:var(--bg-warm); color:var(--ink); border:1px solid var(--line); box-shadow:none; }
+        .btn.ghost:hover { border-color:var(--accent); color:var(--accent); background:var(--accent-soft); box-shadow:none; }
 
-        /* Hero Section (Tightened Spacing) */
+        /* Hero Section */
         .hero { min-height:86vh; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:130px 24px 50px; position:relative; z-index:1; }
         .hero h1 {
-          font-size:clamp(46px, 8.5vw, 124px); font-weight:800; line-height:1.01; letter-spacing:-.04em; max-width:1200px;
+          font-size:clamp(46px, 8.5vw, 124px); font-weight:800; line-height:1.01; letter-spacing:-.04em; max-width:1200px; color:var(--ink);
         }
         .hero h1 .row { display:block; opacity:0; animation:heroRise 1.2s var(--ease-framer) forwards; }
         @keyframes heroRise { from{opacity:0; transform:translateY(36px)} to{opacity:1; transform:translateY(0)} }
         .hero h1 .serif { font-size:1.04em; }
-        .hero-sub { margin-top:24px; max-width:600px; font-size:clamp(16px,1.5vw,19px); line-height:1.7; color:var(--dim); opacity:0; animation:heroRise 1.2s .35s var(--ease-framer) forwards; }
+        .hero-sub { margin-top:24px; max-width:600px; font-size:clamp(16px,1.5vw,19px); line-height:1.7; color:var(--ink-muted); opacity:0; animation:heroRise 1.2s .35s var(--ease-framer) forwards; }
         .hero-cta { margin-top:34px; display:flex; gap:14px; flex-wrap:wrap; justify-content:center; opacity:0; animation:heroRise 1.2s .55s var(--ease-framer) forwards; }
         .hero-scroll { margin-top:54px; display:flex; flex-direction:column; align-items:center; gap:8px; opacity:0; animation:heroRise 1.1s .85s var(--ease-framer) forwards; }
-        .hero-scroll span { font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.3em; color:var(--dim2); }
-        .hero-scroll i { width:1px; height:38px; background:linear-gradient(to bottom, rgba(245,166,35,.8), transparent); }
+        .hero-scroll span { font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.3em; color:var(--ink-muted); }
+        .hero-scroll i { width:1px; height:38px; background:linear-gradient(to bottom, var(--accent), transparent); }
 
-        /* Stats (Tightened Spacing) */
-        .stats { border-top:1px solid var(--line); border-bottom:1px solid var(--line); background:rgba(255,255,255,0.01); }
+        /* Stats */
+        .stats { border-top:1px solid var(--line); border-bottom:1px solid var(--line); background:var(--bg-warm); }
         .stats-grid { max-width:1240px; margin:0 auto; display:grid; grid-template-columns:repeat(4,1fr); }
         .stat { padding:38px 20px; text-align:center; border-right:1px solid var(--line); transition:background .35s; }
         .stat:last-child { border-right:none; }
-        .stat:hover { background:rgba(255,255,255,.025); }
-        .stat .num { font-size:clamp(34px,4vw,52px); font-weight:800; letter-spacing:-.03em; color:var(--amber); line-height:1; }
-        .stat .lbl { margin-top:10px; font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--dim2); }
+        .stat:hover { background:rgba(255,255,255,.5); }
+        .stat .num { font-size:clamp(34px,4vw,52px); font-weight:800; letter-spacing:-.03em; color:var(--accent); line-height:1; }
+        .stat .lbl { margin-top:10px; font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-muted); }
         @media(max-width:860px){
           .stats-grid{ grid-template-columns:repeat(2,1fr); }
           .stat:nth-child(2){ border-right:none; }
@@ -624,38 +632,38 @@ export default function VeraLevelLanding() {
         .kicker {
           font-family:'JetBrains Mono', monospace;
           font-size:11.5px; font-weight:600; letter-spacing:.2em; text-transform:uppercase;
-          color:var(--amber); margin-bottom:18px; display:block;
+          color:var(--accent); margin-bottom:18px; display:block;
         }
-        h2.title { font-size:clamp(34px,4.8vw,64px); font-weight:800; line-height:1.04; letter-spacing:-.03em; }
-        .lede { margin-top:20px; max-width:600px; font-size:17px; line-height:1.7; color:var(--dim); }
+        h2.title { font-size:clamp(34px,4.8vw,64px); font-weight:800; line-height:1.04; letter-spacing:-.03em; color:var(--ink); }
+        .lede { margin-top:20px; max-width:600px; font-size:17px; line-height:1.7; color:var(--ink-muted); }
 
         /* Difference vs Grid */
         .vs-grid { margin-top:44px; display:grid; grid-template-columns:1fr 1fr; gap:18px; }
         @media(max-width:900px){ .vs-grid{ grid-template-columns:1fr; } }
         .vs-card-in { padding:36px; height:100%; }
         .vs-label { font-family:'JetBrains Mono',monospace; font-size:10.5px; font-weight:600; letter-spacing:.18em; text-transform:uppercase; margin-bottom:22px; }
-        .them-label { color:var(--dim2); }
-        .us-label { color:var(--amber); }
+        .them-label { color:var(--ink-muted); }
+        .us-label { color:var(--accent); }
         .vs-row { display:flex; align-items:flex-start; gap:14px; padding:14px 0; border-bottom:1px dashed var(--line-dash); font-size:15px; line-height:1.55; }
         .vs-row:last-child { border-bottom:none; }
-        .them-row { color:var(--dim2); }
-        .us-row { color:#e8e1d3; }
+        .them-row { color:var(--ink-muted); }
+        .us-row { color:var(--ink); }
         .vs-row svg { flex-shrink:0; margin-top:3px; }
 
-        /* Tanglish Section (Tightened) */
+        /* Tanglish Section */
         .tanglish {
           border-top:1px solid var(--line); border-bottom:1px solid var(--line);
           padding:95px 24px; text-align:center;
-          background:radial-gradient(ellipse 70% 80% at 50% 50%, rgba(245,166,35,.06), transparent);
+          background:var(--bg-warm);
         }
         .tanglish .big { font-size:clamp(40px,7.8vw,110px); font-weight:800; line-height:1.06; letter-spacing:-.04em; }
-        .tanglish .muted { color:#575147; }
-        .tanglish .mid { color:#b5ad9e; }
-        .tanglish .lede { margin:30px auto 0; text-align:center; max-width:480px; font-size:17px; }
+        .tanglish .muted { color:var(--ink-muted); }
+        .tanglish .mid { color:var(--ink-light); }
+        .tanglish .lede { margin:30px auto 0; text-align:center; max-width:480px; font-size:17px; color:var(--ink-light); }
 
-        /* Services Grid (Tightened Spacing) */
+        /* Services Grid */
         .svc-head { display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap:24px; }
-        .svc-side { max-width:380px; font-size:16.5px; line-height:1.7; color:var(--dim); }
+        .svc-side { max-width:380px; font-size:16.5px; line-height:1.7; color:var(--ink-muted); }
         .svc-grid { margin-top:44px; display:grid; grid-template-columns:repeat(3,1fr); gap:18px; align-items:stretch; }
         @media(min-width:1001px){
           .svc-grid > div:nth-child(2){ margin-top:20px; }
@@ -666,49 +674,50 @@ export default function VeraLevelLanding() {
         .svc-in { padding:30px; display:flex; flex-direction:column; height:100%; }
         .svc-icon {
           width:42px; height:42px; border-radius:12px; display:flex; align-items:center; justify-content:center;
-          border:1px solid rgba(245,166,35,.25); background:var(--amber-soft); color:var(--amber);
+          border:1px solid rgba(239,51,52,.25); background:var(--accent-soft); color:var(--accent);
           margin-bottom:20px; transition:background .35s var(--ease-framer), color .35s, transform .35s var(--ease-framer);
         }
-        .spotlight-card:hover .svc-icon { background:var(--amber); color:#0e0c0a; transform:scale(1.08) rotate(4deg); }
+        .spotlight-card:hover .svc-icon { background:var(--accent); color:#FFFFFF; transform:scale(1.08) rotate(4deg); }
         .svc-top { display:flex; align-items:flex-start; justify-content:space-between; gap:10px; }
-        .svc-in h3 { font-size:19.5px; font-weight:700; letter-spacing:-.01em; line-height:1.25; }
-        .svc-arrow { color:var(--dim2); margin-top:3px; flex-shrink:0; transition:transform .35s var(--ease-framer), color .35s; }
-        .spotlight-card:hover .svc-arrow { transform:translate(4px,-4px); color:var(--amber); }
-        .svc-in p { margin-top:12px; font-size:14.5px; line-height:1.65; color:var(--dim); flex:1; }
-        .svc-bar { position:absolute; left:0; bottom:0; height:2px; width:0; background:var(--amber); transition:width 0.45s var(--ease-framer); }
+        .svc-in h3 { font-size:19.5px; font-weight:700; letter-spacing:-.01em; line-height:1.25; color:var(--ink); }
+        .svc-arrow { color:var(--ink-muted); margin-top:3px; flex-shrink:0; transition:transform .35s var(--ease-framer), color .35s; }
+        .spotlight-card:hover .svc-arrow { transform:translate(4px,-4px); color:var(--accent); }
+        .svc-in p { margin-top:12px; font-size:14.5px; line-height:1.65; color:var(--ink-muted); flex:1; }
+        .svc-bar { position:absolute; left:0; bottom:0; height:2px; width:0; background:var(--accent); transition:width 0.45s var(--ease-framer); }
         .spotlight-card:hover .svc-bar { width:100%; }
 
-        /* Industries Section & Tabs (Tightened) */
-        .ind { background:#0b0a08; border-top:1px solid var(--line); }
+        /* Industries Section (Who We Serve - Pure Deep Black Surface #120E0B) */
+        .ind { background:#120E0B; border-top:1px solid rgba(255,255,255,0.1); }
         .ind-head { max-width:800px; margin:0 auto; text-align:center; }
-        .ind-head .kicker { display:inline-flex; justify-content:center; }
-        .ind-head .lede { margin-left:auto; margin-right:auto; }
+        .ind-head .kicker { display:inline-flex; justify-content:center; color:var(--accent); }
+        .ind-head h2.title { color:#FFFFFF; }
+        .ind-head .lede { margin-left:auto; margin-right:auto; color:#E6E1DC; }
 
         .tab-bar { display:flex; justify-content:center; gap:8px; margin-top:36px; flex-wrap:wrap; }
         .tab-btn {
-          background:rgba(255,255,255,0.03); border:1px solid var(--line); border-radius:999px;
+          background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.18); border-radius:999px;
           padding:9px 20px; font-family:'Plus Jakarta Sans', sans-serif; font-size:13.5px; font-weight:600;
-          color:var(--dim); cursor:pointer; transition:all 0.3s var(--ease-framer);
+          color:#FFFFFF; cursor:pointer; transition:all 0.3s var(--ease-framer);
         }
-        .tab-btn:hover { color:var(--cream); border-color:rgba(245,166,35,0.4); }
-        .tab-btn.active { background:var(--amber); color:#0e0c0a; border-color:var(--amber); font-weight:700; box-shadow:0 4px 18px rgba(245,166,35,0.28); }
+        .tab-btn:hover { color:#FFFFFF; border-color:var(--accent); background:rgba(239,51,52,0.15); }
+        .tab-btn.active { background:var(--accent); color:#FFFFFF; border-color:var(--accent); font-weight:700; box-shadow:0 4px 18px rgba(239,51,52,0.4); }
 
         .ind-grid { margin-top:40px; display:grid; grid-template-columns:repeat(3,1fr); gap:18px; align-items:stretch; }
         @media(max-width:1000px){ .ind-grid{ grid-template-columns:1fr; max-width:560px; margin-left:auto; margin-right:auto; } }
         .ind-in { padding:32px; height:100%; }
         .ind-icon {
           width:42px; height:42px; border-radius:12px; display:flex; align-items:center; justify-content:center;
-          border:1px solid rgba(245,166,35,.25); background:var(--amber-soft); color:var(--amber);
+          border:1px solid rgba(239,51,52,.35); background:var(--accent-soft); color:var(--accent);
           transition:background .35s var(--ease-framer), color .35s;
         }
-        .spotlight-card:hover .ind-icon { background:var(--amber); color:#0e0c0a; }
-        .ind-in h3 { margin-top:22px; font-size:22px; font-weight:800; letter-spacing:-.01em; }
-        .ind-tag { margin-top:6px; font-size:15.5px; color:rgba(245,166,35,.85); }
+        .spotlight-card:hover .ind-icon { background:var(--accent); color:#FFFFFF; }
+        .ind-in h3 { margin-top:22px; font-size:22px; font-weight:800; letter-spacing:-.01em; color:#FFFFFF; }
+        .ind-tag { margin-top:6px; font-size:15.5px; color:var(--accent); }
         .ind-list { margin-top:20px; }
-        .ind-row { display:flex; align-items:center; gap:14px; padding:12px 0; border-bottom:1px dashed var(--line-dash); font-size:14.5px; color:#d4cdbf; transition:color .3s, padding-left .3s var(--ease-framer); }
+        .ind-row { display:flex; align-items:center; gap:14px; padding:12px 0; border-bottom:1px dashed rgba(255,255,255,0.14); font-size:14.5px; color:#FFFFFF; transition:color .3s, padding-left .3s var(--ease-framer); }
         .ind-row:last-child { border-bottom:none; }
-        .ind-row:hover { color:var(--amber); padding-left:5px; }
-        .ind-num { font-family:'JetBrains Mono',monospace; font-size:10.5px; color:var(--dim2); }
+        .ind-row:hover { color:var(--accent); padding-left:5px; }
+        .ind-num { font-family:'JetBrains Mono',monospace; font-size:10.5px; color:#A8A096; }
 
         /* Drifting Belt */
         .more-head { margin-top:54px; text-align:center; font-size:clamp(20px,2.4vw,28px); }
@@ -721,27 +730,27 @@ export default function VeraLevelLanding() {
         .chip-track.rev { animation:beltR 46s linear infinite; }
         .chip-set { display:flex; gap:12px; padding-right:12px; }
         .chip {
-          white-space:nowrap; font-size:13.5px; font-weight:500; color:#d0c9bb;
-          border:1px solid var(--line); border-radius:999px; padding:9px 18px;
-          background:rgba(255,255,255,.02); transition:border-color .35s, color .35s, background .35s;
+          white-space:nowrap; font-size:13.5px; font-weight:500; color:#FFFFFF;
+          border:1px solid rgba(255,255,255,0.18); border-radius:999px; padding:9px 18px;
+          background:rgba(255,255,255,.06); transition:border-color .35s, color .35s, background .35s;
         }
-        .chip:hover { border-color:rgba(245,166,35,.5); color:var(--amber); background:rgba(245,166,35,.07); }
+        .chip:hover { border-color:var(--accent); color:var(--accent); background:rgba(239,51,52,0.15); }
         @keyframes beltL { to { transform:translateX(-50%); } }
         @keyframes beltR { from { transform:translateX(-50%); } to { transform:translateX(0); } }
         .warn {
           max-width:620px; margin:48px auto 0; text-align:center; transform:rotate(-0.5deg);
-          border:1px solid rgba(255,120,50,.25); background:rgba(255,120,50,.04);
-          border-radius:18px; padding:22px 30px; font-size:14.5px; line-height:1.65; color:var(--dim);
+          border:1px solid rgba(239,51,52,.35); background:rgba(239,51,52,.08);
+          border-radius:18px; padding:22px 30px; font-size:14.5px; line-height:1.65; color:#FFFFFF;
         }
-        .warn b { color:#ff8a4d; }
+        .warn b { color:var(--accent); }
 
-        /* Workflow Timeline (Tightened Spacing) */
+        /* Workflow Timeline */
         .flow-wrap { position:relative; margin-top:54px; }
         .flow-track { position:absolute; left:23px; top:8px; bottom:8px; width:1px; background:var(--line); }
         .flow-fill {
           position:absolute; left:23px; top:8px; width:1px; max-height:calc(100% - 16px);
-          background:linear-gradient(to bottom, #ffca60, var(--amber));
-          box-shadow:0 0 14px rgba(245,166,35,.6); transition:height .25s ease-out;
+          background:linear-gradient(to bottom, #EF3334, #D92B2C);
+          box-shadow:0 0 12px rgba(239,51,52,.5); transition:height .25s ease-out;
         }
         .phase-row {
           display:flex; align-items:center; gap:16px; margin:44px 0 10px 74px;
@@ -749,90 +758,90 @@ export default function VeraLevelLanding() {
           letter-spacing:.2em; text-transform:uppercase; transition:color .5s;
         }
         .phase-row:first-of-type { margin-top:0; }
-        .phase-line { flex:1; height:1px; background:linear-gradient(90deg, rgba(245,166,35,.35), transparent); }
+        .phase-line { flex:1; height:1px; background:linear-gradient(90deg, rgba(239,51,52,.35), transparent); }
         .step-row { display:grid; grid-template-columns:47px 1fr; gap:28px; padding:18px 0; align-items:flex-start; }
         @media(max-width:640px){ .step-row{ gap:18px; } .phase-row{ margin-left:68px; } }
         .step-node {
           position:relative; z-index:1; width:45px; height:45px; border-radius:50%;
           display:flex; align-items:center; justify-content:center;
-          border:1px solid rgba(255,255,255,.12); background:var(--bg); color:#78716c;
+          border:1px solid var(--line); background:var(--bg-warm); color:var(--ink-muted);
           transition:all .75s var(--ease-framer);
         }
         .step-node.on {
-          border-color:var(--amber); background:var(--amber); color:#0e0c0a; transform:scale(1.06);
-          box-shadow:0 0 0 7px rgba(245,166,35,.12), 0 8px 24px rgba(245,166,35,.28);
+          border-color:var(--accent); background:var(--accent); color:#FFFFFF; transform:scale(1.06);
+          box-shadow:0 0 0 7px rgba(239,51,52,.12), 0 8px 24px rgba(239,51,52,.28);
         }
         .step-body { border-bottom:1px dashed var(--line-dash); padding-bottom:20px; transition:opacity .75s var(--ease-framer), transform .75s var(--ease-framer); }
         .step-row:last-child .step-body { border-bottom:none; }
         .step-head { display:flex; align-items:baseline; gap:14px; }
-        .step-num { font-size:10.5px; color:var(--dim2); }
+        .step-num { font-size:10.5px; color:var(--ink-muted); }
         .step-body h4 { font-size:clamp(18px,2vw,22px); font-weight:700; letter-spacing:-.01em; transition:color .5s; }
-        .step-body p { margin-top:8px; max-width:620px; font-size:14.5px; line-height:1.65; color:var(--dim); }
+        .step-body p { margin-top:8px; max-width:620px; font-size:14.5px; line-height:1.65; color:var(--ink-muted); }
 
         /* Marquee Ticker */
-        .marquee { overflow:hidden; background:var(--amber); border-top:1px solid rgba(245,166,35,.3); border-bottom:1px solid rgba(245,166,35,.3); padding:16px 0; transform:rotate(-1deg) scale(1.02); position:relative; z-index:2; }
+        .marquee { overflow:hidden; background:var(--accent); border-top:1px solid rgba(239,51,52,.3); border-bottom:1px solid rgba(239,51,52,.3); padding:16px 0; transform:rotate(-1deg) scale(1.02); position:relative; z-index:2; }
         .mq-track { display:flex; gap:44px; width:max-content; animation:marquee 30s linear infinite; }
         .mq-track > span { display:flex; align-items:center; gap:44px; }
-        .mq-track span span { display:flex; align-items:center; gap:44px; font-family:'Schibsted Grotesk', sans-serif; font-size:17px; font-weight:800; letter-spacing:0; color:#14110b; white-space:nowrap; }
+        .mq-track span span { display:flex; align-items:center; gap:44px; font-family:'Schibsted Grotesk', sans-serif; font-size:17px; font-weight:800; letter-spacing:0; color:#FFFFFF; white-space:nowrap; }
         .mq-track i { font-style:normal; opacity:.4; }
         @keyframes marquee { to { transform:translateX(-50%); } }
 
-        /* Proof Section (Tightened) */
+        /* Proof Section */
         .proof-grid { margin-top:44px; display:grid; grid-template-columns:1.1fr 1fr; gap:36px; align-items:start; }
         @media(max-width:960px){ .proof-grid{ grid-template-columns:1fr; } }
-        .proof-quote { font-size:clamp(22px,2.8vw,34px); font-weight:400; line-height:1.45; letter-spacing:-.01em; color:#ebe4d6; }
-        .proof-quote b { color:var(--amber); font-weight:600; }
+        .proof-quote { font-size:clamp(22px,2.8vw,34px); font-weight:400; line-height:1.45; letter-spacing:-.01em; color:var(--ink); }
+        .proof-quote b { color:var(--accent); font-weight:600; }
         .proof-quote .serif { font-size:1.05em; }
         .proof-cards { display:flex; flex-direction:column; gap:14px; }
         .p-card-in { padding:26px 30px; }
-        .p-card-in .k { font-size:21px; font-weight:800; letter-spacing:-.01em; color:var(--amber); }
-        .p-card-in .v { margin-top:6px; font-size:14.5px; line-height:1.6; color:var(--dim); }
+        .p-card-in .k { font-size:21px; font-weight:800; letter-spacing:-.01em; color:var(--accent); }
+        .p-card-in .v { margin-top:6px; font-size:14.5px; line-height:1.6; color:var(--ink-muted); }
 
-        /* FAQ Section (Tightened Spacing) */
+        /* FAQ Section */
         .faq-wrap { margin-top:40px; max-width:820px; margin-left:auto; margin-right:auto; display:flex; flex-direction:column; gap:12px; }
         .faq-item {
-          border:1px solid var(--line); border-radius:18px; background:var(--bg2); padding:20px 26px;
+          border:1px solid var(--line); border-radius:18px; background:var(--bg-warm); padding:20px 26px;
           cursor:pointer; transition:all 0.35s var(--ease-framer);
         }
-        .faq-item:hover { border-color:rgba(245,166,35,0.35); }
-        .faq-item.open { border-color:var(--amber); background:rgba(245,166,35,0.04); }
+        .faq-item:hover { border-color:rgba(239,51,52,0.35); }
+        .faq-item.open { border-color:var(--accent); background:var(--accent-soft); }
         .faq-head { display:flex; align-items:center; justify-content:space-between; gap:18px; }
-        .faq-head h4 { font-size:17px; font-weight:700; color:var(--cream); }
+        .faq-head h4 { font-size:17px; font-weight:700; color:var(--ink); }
         .faq-icon {
           width:30px; height:30px; border-radius:50%; border:1px solid var(--line);
-          display:flex; align-items:center; justify-content:center; color:var(--dim);
+          display:flex; align-items:center; justify-content:center; color:var(--ink-muted);
           transition:transform 0.35s var(--ease-framer), color 0.35s, border-color 0.35s; flex-shrink:0;
         }
-        .faq-item.open .faq-icon { transform:rotate(180deg); color:var(--amber); border-color:var(--amber); }
+        .faq-item.open .faq-icon { transform:rotate(180deg); color:var(--accent); border-color:var(--accent); }
         .faq-body { display:grid; grid-template-rows:0fr; transition:grid-template-rows 0.35s var(--ease-framer); }
         .faq-item.open .faq-body { grid-template-rows:1fr; }
-        .faq-body p { overflow:hidden; font-size:14.5px; line-height:1.65; color:var(--dim); padding-top:0px; transition:padding-top 0.35s; }
+        .faq-body p { overflow:hidden; font-size:14.5px; line-height:1.65; color:var(--ink-muted); padding-top:0px; transition:padding-top 0.35s; }
         .faq-item.open .faq-body p { padding-top:12px; }
 
-        /* Final CTA (Tightened) */
-        .final { border-top:1px solid var(--line); padding:100px 24px; text-align:center; position:relative; overflow:hidden; }
-        .final-glow { position:absolute; left:0; right:0; bottom:0; height:380px; background:radial-gradient(ellipse 55% 75% at 50% 100%, rgba(245,166,35,.16), transparent); pointer-events:none; }
-        .final h2 { font-size:clamp(44px,7.5vw,104px); font-weight:800; line-height:1; letter-spacing:-.04em; }
-        .final .lede { margin:24px auto 0; text-align:center; }
-        .final-note { margin-top:24px; font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:.18em; text-transform:uppercase; color:var(--dim2); display:flex; align-items:center; justify-content:center; gap:8px; }
+        /* Final CTA (Dark Surface Ink #211B16) */
+        .final { border-top:1px solid var(--line); padding:100px 24px; text-align:center; position:relative; overflow:hidden; background:var(--bg-dark); }
+        .final-glow { position:absolute; left:0; right:0; bottom:0; height:380px; background:radial-gradient(ellipse 55% 75% at 50% 100%, rgba(239,51,52,.16), transparent); pointer-events:none; }
+        .final h2 { font-size:clamp(44px,7.5vw,104px); font-weight:800; line-height:1; letter-spacing:-.04em; color:#FFFFFF; }
+        .final .lede { margin:24px auto 0; text-align:center; color:#D6CFCE; }
+        .final-note { margin-top:24px; font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:.18em; text-transform:uppercase; color:#8A8378; display:flex; align-items:center; justify-content:center; gap:8px; }
 
         /* Sticky Action Floating Pill */
         .floating-action {
           position:fixed; bottom:24px; right:24px; z-index:90;
-          display:flex; align-items:center; gap:10px; background:rgba(14,12,10,0.92);
-          border:1px solid rgba(245,166,35,0.35); backdrop-filter:blur(16px);
-          padding:9px 16px 9px 12px; border-radius:999px; box-shadow:0 10px 32px rgba(0,0,0,0.6);
+          display:flex; align-items:center; gap:10px; background:rgba(255,255,255,0.94);
+          border:1px solid rgba(239,51,52,0.35); backdrop-filter:blur(16px);
+          padding:9px 16px 9px 12px; border-radius:999px; box-shadow:0 10px 32px rgba(33,27,22,0.12);
           opacity:0; transform:translateY(24px); transition:all 0.4s var(--ease-framer);
           pointer-events:none;
         }
         .floating-action.visible { opacity:1; transform:translateY(0); pointer-events:auto; }
-        .floating-dot { width:8px; height:8px; border-radius:50%; background:#22c55e; box-shadow:0 0 8px #22c55e; }
-        .floating-text { font-size:12.5px; font-weight:600; color:var(--cream); }
-        .floating-btn { background:var(--amber); color:#0e0c0a; font-weight:700; font-size:12px; padding:6px 13px; border-radius:999px; text-decoration:none; transition:transform 0.3s; }
+        .floating-dot { width:8px; height:8px; border-radius:50%; background:var(--green); box-shadow:0 0 8px var(--green); }
+        .floating-text { font-size:12.5px; font-weight:600; color:var(--ink); }
+        .floating-btn { background:var(--accent); color:#FFFFFF; font-weight:700; font-size:12px; padding:6px 13px; border-radius:999px; text-decoration:none; transition:transform 0.3s; }
         .floating-btn:hover { transform:scale(1.05); }
 
-        footer { border-top:1px solid var(--line); padding:32px 0; }
-        .foot { max-width:1240px; margin:0 auto; padding:0 28px; display:flex; flex-wrap:wrap; justify-content:space-between; gap:14px; font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:.1em; color:var(--dim2); }
+        footer { border-top:1px solid var(--line); padding:32px 0; background:var(--bg-dark); }
+        .foot { max-width:1240px; margin:0 auto; padding:0 28px; display:flex; flex-wrap:wrap; justify-content:space-between; gap:14px; font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:.1em; color:#8A8378; }
       `}</style>
 
       <ScrollProgress />
@@ -858,7 +867,7 @@ export default function VeraLevelLanding() {
       <nav className={`nav ${scrolled ? "scrolled" : ""}`}>
         <div className="nav-in">
           <a href="#top" className="logo">
-            Vera<b>Level</b>
+            Unmute<b>Media</b>
           </a>
           <div className="nav-links">
             <a href="#difference">Why Us</a>
@@ -885,7 +894,7 @@ export default function VeraLevelLanding() {
             We turn businesses
           </span>
           <span className="row" style={{ animationDelay: ".24s" }}>
-            into <span className="serif amber hl-under">personal brands</span>
+            into <span className="serif accent hl-under">personal brands</span>
           </span>
           <span className="row" style={{ animationDelay: ".38s" }}>
             that print revenue.
@@ -956,7 +965,7 @@ export default function VeraLevelLanding() {
           <Reveal>
             <div className="kicker">The Difference</div>
             <h2 className="title">
-              Not another <span className="serif amber">shoot, edit, post</span> agency.
+              Not another <span className="serif accent">shoot, edit, post</span> agency.
             </h2>
             <p className="lede">
               Most agencies stop where real commercial impact begins. They hand you raw reels and
@@ -965,7 +974,7 @@ export default function VeraLevelLanding() {
           </Reveal>
           <div className="vs-grid">
             <Reveal delay={0.08}>
-              <CardSpotlight style={{ background: "var(--bg2)" }}>
+              <CardSpotlight style={{ background: "var(--bg-warm)" }}>
                 <div className="vs-card-in">
                   <div className="vs-label them-label">Typical Agencies</div>
                   {[
@@ -976,7 +985,7 @@ export default function VeraLevelLanding() {
                     "They report empty metrics at the end of every month.",
                   ].map((t) => (
                     <div className="vs-row them-row" key={t}>
-                      <X size={15} color="#57534e" /> {t}
+                      <X size={15} color="#8A8378" /> {t}
                     </div>
                   ))}
                 </div>
@@ -987,12 +996,12 @@ export default function VeraLevelLanding() {
               <CardSpotlight
                 style={{
                   background:
-                    "linear-gradient(160deg, rgba(245,166,35,.1), rgba(245,166,35,.02) 60%)",
-                  borderColor: "rgba(245,166,35,.35)",
+                    "linear-gradient(160deg, rgba(239,51,52,.08), rgba(239,51,52,.01) 60%)",
+                  borderColor: "rgba(239,51,52,.3)",
                 }}
               >
                 <div className="vs-card-in">
-                  <div className="vs-label us-label">VeraLevel Media</div>
+                  <div className="vs-label us-label">Unmute Media</div>
                   {[
                     "We study your audience, niche, and market before touching a camera.",
                     "We engineer viral content patterns tested for high conversion.",
@@ -1001,7 +1010,7 @@ export default function VeraLevelLanding() {
                     "We measure the single metric that matters: net revenue closed.",
                   ].map((t) => (
                     <div className="vs-row us-row" key={t}>
-                      <Check size={15} color="#f5a623" /> {t}
+                      <Check size={15} color="var(--green)" /> {t}
                     </div>
                   ))}
                 </div>
@@ -1025,7 +1034,7 @@ export default function VeraLevelLanding() {
             </span>
           </Reveal>
           <Reveal y={40} delay={0.2}>
-            <span className="serif amber" style={{ display: "block" }}>
+            <span className="serif accent" style={{ display: "block" }}>
               Sales Edukurom.
             </span>
           </Reveal>
@@ -1046,7 +1055,7 @@ export default function VeraLevelLanding() {
               <div className="kicker">What We Do</div>
               <h2 className="title">
                 One team.<br />
-                <span className="serif amber">Full growth engine.</span>
+                <span className="serif accent">Full growth engine.</span>
               </h2>
             </Reveal>
             <Reveal delay={0.12}>
@@ -1089,7 +1098,7 @@ export default function VeraLevelLanding() {
             <Reveal>
               <div className="kicker">Who We Serve</div>
               <h2 className="title">
-                We don't work with <span className="serif amber">everyone.</span>
+                We don't work with <span className="serif accent">everyone.</span>
               </h2>
               <p className="lede">
                 We partner exclusively with high-ticket businesses where one client relationship
@@ -1123,7 +1132,7 @@ export default function VeraLevelLanding() {
               const Icon = g.icon;
               return (
                 <Reveal key={g.label} delay={gi * 0.08}>
-                  <CardSpotlight>
+                  <CardSpotlight style={{ background: "#1C1714", borderColor: "rgba(255,255,255,0.14)" }}>
                     <div className="ind-in">
                       <div className="ind-icon">
                         <Icon size={19} strokeWidth={1.8} />
@@ -1146,7 +1155,7 @@ export default function VeraLevelLanding() {
 
           <Reveal delay={0.12}>
             <div className="more-head">
-              <span className="serif amber">and the client list continues...</span>
+              <span className="serif accent">and the client list continues...</span>
             </div>
           </Reveal>
           <div className="chip-belt">
@@ -1187,10 +1196,10 @@ export default function VeraLevelLanding() {
       <section className="sec" id="system">
         <div className="wrap" style={{ maxWidth: 1000 }}>
           <Reveal>
-            <div className="kicker">The VeraLevel System</div>
+            <div className="kicker">The Unmute System</div>
             <h2 className="title">
               Thirteen steps.<br />
-              <span className="serif amber">Zero lost opportunities.</span>
+              <span className="serif accent">Zero lost opportunities.</span>
             </h2>
             <p className="lede">
               From day one strategy sessions to continuous revenue scaling, every prospect is
@@ -1226,12 +1235,12 @@ export default function VeraLevelLanding() {
       </div>
 
       {/* ================= PROOF ================= */}
-      <section className="sec">
+      <section className="sec" style={{ background: "var(--bg-warm)" }}>
         <div className="wrap">
           <Reveal>
             <div className="kicker">Proof, Not Promises</div>
             <h2 className="title">
-              We practice what we <span className="serif amber">sell.</span>
+              We practice what we <span className="serif accent">sell.</span>
             </h2>
           </Reveal>
           <div className="proof-grid">
@@ -1239,7 +1248,7 @@ export default function VeraLevelLanding() {
               <p className="proof-quote">
                 "We have executed this exact playbook for <b>25+ brands</b> over the past two years,
                 generating <b>over ₹10 crores in closed client revenue</b>, while growing our own page
-                past <span className="serif amber">200K followers</span>."
+                past <span className="serif accent">200K followers</span>."
               </p>
             </Reveal>
             <div className="proof-cards">
@@ -1258,7 +1267,7 @@ export default function VeraLevelLanding() {
                 },
               ].map((c, i) => (
                 <Reveal key={c.k} delay={i * 0.07}>
-                  <CardSpotlight>
+                  <CardSpotlight style={{ background: "var(--bg-card)" }}>
                     <div className="p-card-in">
                       <div className="k">{c.k}</div>
                       <div className="v">{c.v}</div>
@@ -1279,10 +1288,10 @@ export default function VeraLevelLanding() {
               Clarifications
             </div>
             <h2 className="title">
-              Frequently Asked <span className="serif amber">Questions</span>
+              Frequently Asked <span className="serif accent">Questions</span>
             </h2>
             <p className="lede" style={{ marginLeft: "auto", marginRight: "auto" }}>
-              Everything you need to know before initiating a brand partnership with VeraLevel Media.
+              Everything you need to know before initiating a brand partnership with Unmute Media.
             </p>
           </Reveal>
 
@@ -1309,7 +1318,7 @@ export default function VeraLevelLanding() {
           <Reveal>
             <h2>
               Your business.<br />
-              <span className="serif amber">Vera level.</span>
+              <span className="serif accent">Unmuted.</span>
             </h2>
           </Reveal>
           <Reveal delay={0.12}>
@@ -1337,7 +1346,7 @@ export default function VeraLevelLanding() {
       {/* ================= FOOTER ================= */}
       <footer>
         <div className="foot">
-          <span>© 2026 VeraLevel Media</span>
+          <span>© 2026 Unmute Media</span>
           <span>Content · Brand · Leads · Revenue</span>
         </div>
       </footer>

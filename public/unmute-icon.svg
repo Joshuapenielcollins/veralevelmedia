@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240">
+  <!-- badge -->
+  <rect x="0" y="0" width="240" height="240" rx="56" fill="#211B16"/>
+  <rect x="1.5" y="1.5" width="237" height="237" rx="54.5" fill="none" stroke="#EF3334" stroke-opacity="0.3" stroke-width="3"/>
+
+  <!-- audio wave / unmute icon mark -->
+  <g transform="translate(56,56)" fill="none" stroke="#EF3334" stroke-width="14" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M24 40 H48 L80 16 V112 L48 88 H24 Z" fill="#EF3334" fill-opacity="0.12"/>
+    <path d="M104 44 C112 52 112 76 104 84"/>
+    <path d="M120 32 C136 48 136 88 120 104"/>
+  </g>
+</svg>

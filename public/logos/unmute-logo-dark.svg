@@ -7,13 +7,14 @@
     </style>
   </defs>
 
-  <g transform="translate(18,22)" fill="none" stroke="#e89400" stroke-width="12" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M8 88 H34 V62 H60 V36 H86 V16"/>
-    <path d="M72 27 L86 12 L100 27"/>
+  <g transform="translate(18,22)" fill="none" stroke="#EF3334" stroke-width="12" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M16 32 H32 L56 16 V88 L32 72 H16 Z" fill="#EF3334" fill-opacity="0.12"/>
+    <path d="M72 32 C78 38 78 66 72 72"/>
+    <path d="M86 20 C98 34 98 70 86 84"/>
   </g>
 
-  <text class="wm" x="150" y="78">
-    <tspan fill="#16130c">Vera</tspan><tspan fill="#e89400">Level</tspan>
+  <text class="wm" x="140" y="78">
+    <tspan fill="#211B16">Unmute</tspan><tspan fill="#EF3334">Media</tspan>
   </text>
-  <text class="tag" x="153" y="112" fill="#7a7466">MEDIA</text>
+  <text class="tag" x="143" y="112" fill="#8A8378">MEDIA</text>
 </svg>

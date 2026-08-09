@@ -1,4 +1,4 @@
-# VeraLevel Media — Landing Page
+# Unmute Media — Landing Page
 
 ## Run it
 
@@ -18,6 +18,5 @@ Then drag the generated `dist` folder into Netlify, or connect the repo to Verce
 
 ## Before going live
 
-- Replace the placeholder alert on the "Book Your Free Strategy Call" button
-  in `src/App.jsx` with your real WhatsApp / Calendly / booking link.
+- Replace the booking link in `src/App.jsx` with your real WhatsApp / Calendly / booking link.
 - Logo files are in `public/logos/` if you need them elsewhere.
