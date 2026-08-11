@@ -432,7 +432,7 @@ export default function UnmuteLanding() {
 
         :root {
           --bg: #FFFFFF;
-          --bg-warm: #F2F0EA;
+          --bg-warm: #FFFFFF;
           --bg-card: #FFFFFF;
           --bg-dark: #211B16;
           --bg-dark-card: #2A231E;
@@ -558,8 +558,8 @@ export default function UnmuteLanding() {
           border-color:rgba(239,51,52,0.3);
           box-shadow:0 16px 40px rgba(33,27,22,0.14), inset 0 1px 0 rgba(239,51,52,0.2);
         }
-        .logo { font-size:21px; font-weight:800; letter-spacing:-.02em; color:var(--ink); text-decoration:none; display:flex; align-items:center; gap:6px; font-family:'Schibsted Grotesk', sans-serif !important; }
-        .logo b { color:var(--accent); font-weight:800; }
+        .logo { text-decoration:none; display:flex; align-items:center; }
+        .logo img { height:44px; width:auto; display:block; }
         .nav-links { display:flex; gap:32px; }
         .nav-links a { position:relative; color:var(--ink-muted); text-decoration:none; font-size:14px; font-weight:600; transition:color .3s; }
         .nav-links a::after {
@@ -687,7 +687,7 @@ export default function UnmuteLanding() {
         .spotlight-card:hover .svc-bar { width:100%; }
 
         /* Industries Section (Who We Serve - Pure Deep Black Surface #120E0B) */
-        .ind { background:#120E0B; border-top:1px solid rgba(255,255,255,0.1); }
+        .ind { background:#000000; border-top:1px solid rgba(255,255,255,0.1); }
         .ind-head { max-width:800px; margin:0 auto; text-align:center; }
         .ind-head .kicker { display:inline-flex; justify-content:center; color:var(--accent); }
         .ind-head h2.title { color:#FFFFFF; }
@@ -866,8 +866,8 @@ export default function UnmuteLanding() {
       {/* ================= NAV ================= */}
       <nav className={`nav ${scrolled ? "scrolled" : ""}`}>
         <div className="nav-in">
-          <a href="#top" className="logo">
-            Unmute<b>Media</b>
+          <a href="#top" className="logo" aria-label="Unmute Media">
+            <img src="/unmute-logo.png" alt="Unmute Media" />
           </a>
           <div className="nav-links">
             <a href="#difference">Why Us</a>
@@ -974,7 +974,7 @@ export default function UnmuteLanding() {
           </Reveal>
           <div className="vs-grid">
             <Reveal delay={0.08}>
-              <CardSpotlight style={{ background: "var(--bg-warm)" }}>
+              <CardSpotlight style={{ background: "#FFFFFF" }}>
                 <div className="vs-card-in">
                   <div className="vs-label them-label">Typical Agencies</div>
                   {[
