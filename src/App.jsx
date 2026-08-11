@@ -385,9 +385,8 @@ const Cursor = () => {
       rx += (mx - rx) * 0.18;
       ry += (my - ry) * 0.18;
       dot.style.transform = `translate(${mx}px, ${my}px) translate(-50%, -50%)`;
-      ring.style.transform = `translate(${rx}px, ${ry}px) translate(-50%, -50%) scale(${
-        hovering ? 1.8 : 1
-      })`;
+      ring.style.transform = `translate(${rx}px, ${ry}px) translate(-50%, -50%) scale(${hovering ? 1.8 : 1
+        })`;
       ring.style.borderColor = hovering ? "rgba(239,51,52,.85)" : "rgba(239,51,52,.35)";
       ring.style.background = hovering ? "rgba(239,51,52,.07)" : "transparent";
       raf = requestAnimationFrame(loop);
