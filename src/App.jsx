@@ -834,6 +834,7 @@ export default function UnmuteLanding() {
           pointer-events:none;
         }
         .floating-action.visible { opacity:1; transform:translateY(0); pointer-events:auto; }
+        @media(max-width:860px){ .floating-action { display:none !important; } }
         .floating-dot { width:8px; height:8px; border-radius:50%; background:var(--green); box-shadow:0 0 8px var(--green); }
         .floating-text { font-size:12.5px; font-weight:600; color:var(--ink); }
         .floating-btn { background:var(--accent); color:#FFFFFF; font-weight:700; font-size:12px; padding:6px 13px; border-radius:999px; text-decoration:none; transition:transform 0.3s; }
